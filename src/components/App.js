@@ -51,31 +51,33 @@ const App = () => {
 
   return (
     <div>
-       <h1>Books List</h1>
+      <h1>Books List</h1>
       <div style={{ display: 'flex' }}>
         <div className="dropdown" style={{ marginRight: '10px' }}>
-          <label>
-            sort by:
+          <label htmlFor="sort-by">
+            Sort by:
             <select
+              id="sort-by"
               value={sortBy}
               onChange={e => setSortBy(e.target.value)}
             >
-              <option>Title</option>
-              <option>Author</option>
-              <option>Publisher</option>
+              <option value="Title">Title</option>
+              <option value="Author">Author</option>
+              <option value="Publisher">Publisher</option>
             </select>
           </label>
         </div>
 
         <div className="dropdown">
-          <label>
-            order:
+          <label htmlFor="order">
+            Order:
             <select
+              id="order"
               value={ordered}
               onChange={e => setOrdered(e.target.value)}
             >
-              <option>Ascending</option>
-              <option>Descending</option>
+              <option value="Ascending">Ascending</option>
+              <option value="Descending">Descending</option>
             </select>
           </label>
         </div>
@@ -93,8 +95,8 @@ const App = () => {
           <tbody>
             {
               sortedBooks.length > 0 ? (
-                sortedBooks.map(book => (
-                  <tr key={book.title} className="book" style={{ height: '50px' }}>
+                sortedBooks.map((book, index) => (
+                  <tr key={index} className="book" style={{ height: '50px' }}>
                     <td className="book_title">{book.title}</td>
                     <td className="book_author">{book.author}</td>
                     <td className="book_publisher">{book.publisher}</td>
@@ -102,7 +104,7 @@ const App = () => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan="4">No books available</td>
+                  <td colSpan="3">No books available</td>
                 </tr>
               )
             }

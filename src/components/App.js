@@ -102,7 +102,7 @@ const App = () => {
                   </tr>))
               ) : (
                 <tr>
-                  <td colSpan="3">No books available</td>
+                  <td colSpan="4">No books available</td>
                 </tr>
               )
             }

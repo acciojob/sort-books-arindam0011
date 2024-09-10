@@ -7,11 +7,11 @@ import 'regenerator-runtime/runtime';
 
 const App = () => {
   const dispatch = useDispatch();
-  const books = useSelector(state => state.books.books); // Access books directly from the state
+  const books = useSelector(state => state.books.books);
 
   const [sortBy, setSortBy] = useState('Title');
   const [ordered, setOrdered] = useState('Ascending');
-  const [sortedBooks, setSortedBooks] = useState([]); // Ensure this state is defined
+  const [sortedBooks, setSortedBooks] = useState([]);
 
   useEffect(() => {
     const getBooks = async () => {
@@ -45,13 +45,12 @@ const App = () => {
           ? a.publisher.localeCompare(b.publisher)
           : b.publisher.localeCompare(a.publisher));
       }
-      setSortedBooks(sortedArray); // Update the sortedBooks state
+      setSortedBooks(sortedArray);
     }
   }, [sortBy, ordered, books]);
 
   return (
     <div>
-      <h1>Books List</h1>
       <div style={{ display: 'flex' }}>
         <div className="dropdown" style={{ marginRight: '10px' }}>
           <label>
@@ -80,10 +79,12 @@ const App = () => {
           </label>
         </div>
       </div>
+      <h1>Books List</h1>
       <div id='books'>
         <table>
           <thead>
             <tr>
+              <th className="book_image">Cover</th>
               <th className="book_title">Title</th>
               <th className="book_author">Author</th>
               <th className="book_publisher">Publisher</th>
@@ -94,6 +95,7 @@ const App = () => {
               sortedBooks.length > 0 ? (
                 sortedBooks.map(book => (
                   <tr key={book.title} className="book" style={{ height: '50px' }}>
+                    <td className="book_image"><img style={{ width: '50px', height: '50px' }} src={book.book_image} alt={book.title} /></td>
                     <td className="book_title">{book.title}</td>
                     <td className="book_author">{book.author}</td>
                     <td className="book_publisher">{book.publisher}</td>
@@ -101,7 +103,7 @@ const App = () => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan="3">No books available</td>
+                  <td colSpan="4">No books available</td>
                 </tr>
               )
             }

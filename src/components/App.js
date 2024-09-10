@@ -53,31 +53,37 @@ const App = () => {
     <div>
       <div style={{ display: 'flex' }}>
         <div className="dropdown" style={{ marginRight: '10px' }}>
-          <select
-            value={sortBy}
-            onChange={e => setSortBy(e.target.value)}
-          >
-            <option>Title</option>
-            <option>Author</option>
-            <option>Publisher</option>
-          </select>
+          <label>
+            Sort by:
+            <select
+              value={sortBy}
+              onChange={e => setSortBy(e.target.value)}
+            >
+              <option>Title</option>
+              <option>Author</option>
+              <option>Publisher</option>
+            </select>
+          </label>
         </div>
 
         <div className="dropdown">
-          <select
-            value={ordered}
-            onChange={e => setOrdered(e.target.value)}
-          >
-            <option>Ascending</option>
-            <option>Descending</option>
-          </select>
+          <label>
+            Order:
+            <select
+              value={ordered}
+              onChange={e => setOrdered(e.target.value)}
+            >
+              <option>Ascending</option>
+              <option>Descending</option>
+            </select>
+          </label>
         </div>
       </div>
+      <h1>Books List</h1>
       <div id='books'>
         <table>
           <thead>
             <tr>
-              <th className="book_image">Cover</th>
               <th className="book_title">Title</th>
               <th className="book_author">Author</th>
               <th className="book_publisher">Publisher</th>
@@ -88,7 +94,6 @@ const App = () => {
               sortedBooks.length > 0 ? (
                 sortedBooks.map(book => (
                   <tr key={book.title} className="book" style={{ height: '50px' }}>
-                    <td className="book_name"><img style={{ width: '50px', height: '50px' }} src={book.book_image} alt={book.title} /></td>
                     <td className="book_title">{book.title}</td>
                     <td className="book_author">{book.author}</td>
                     <td className="book_publisher">{book.publisher}</td>

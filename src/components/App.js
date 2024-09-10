@@ -51,6 +51,7 @@ const App = () => {
 
   return (
     <div>
+       <h1>Books List</h1>
       <div style={{ display: 'flex' }}>
         <div className="dropdown" style={{ marginRight: '10px' }}>
           <label>
@@ -79,12 +80,11 @@ const App = () => {
           </label>
         </div>
       </div>
-      <h1>Books List</h1>
+     
       <div id='books'>
         <table>
           <thead>
             <tr>
-              <th className="book_image">Cover</th>
               <th className="book_title">Title</th>
               <th className="book_author">Author</th>
               <th className="book_publisher">Publisher</th>
@@ -95,7 +95,6 @@ const App = () => {
               sortedBooks.length > 0 ? (
                 sortedBooks.map(book => (
                   <tr key={book.title} className="book" style={{ height: '50px' }}>
-                    <td className="book_image"><img style={{ width: '50px', height: '50px' }} src={book.book_image} alt={book.title} /></td>
                     <td className="book_title">{book.title}</td>
                     <td className="book_author">{book.author}</td>
                     <td className="book_publisher">{book.publisher}</td>

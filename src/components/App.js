@@ -53,36 +53,37 @@ const App = () => {
 
   return (
     <div>
-      <h1>Books List</h1>
-      <div style={{ display: 'flex' }}>
-        <div className="dropdown" style={{ marginRight: '10px' }}>
-          <label htmlFor="sort-by">
-            Sort by:
-            <select
-              id="sort-by"
-              value={sortBy}
-              onChange={e => setSortBy(e.target.value)}
-            >
-              <option value="Title">Title</option>
-              <option value="Author">Author</option>
-              <option value="Publisher">Publisher</option>
-            </select>
-          </label>
-          <label htmlFor="order">
-            Order:
-            <select
-              id="order"
-              value={ordered}
-              onChange={e => setOrdered(e.target.value)}
-            >
-              <option value="Ascending">Ascending</option>
-              <option value="Descending">Descending</option>
-            </select>
-          </label>
-        </div>
+    <h1>Books List</h1>
+    <div style={{ display: 'flex' }}>
+      <div className="dropdown" style={{ marginRight: '10px' }}>
+        <label htmlFor="sort-by">
+          Sort by:
+          <select
+            id="sort-by"
+            value={sortBy}
+            onChange={e => setSortBy(e.target.value)}
+          >
+            <option value="Title">Title</option>
+            <option value="Author">Author</option>
+            <option value="Publisher">Publisher</option>
+          </select>
+        </label>
+        <label htmlFor="order">
+          Order:
+          <select
+            id="order"
+            value={ordered}
+            onChange={e => setOrdered(e.target.value)}
+          >
+            <option value="Ascending">Ascending</option>
+            <option value="Descending">Descending</option>
+          </select>
+        </label>
       </div>
-
-      <div id='books'>
+    </div>
+  
+    <div id='books'>
+      {sortedBooks.length > 0 ? (
         <table>
           <thead>
             <tr>
@@ -94,25 +95,23 @@ const App = () => {
           </thead>
           <tbody>
             {
-              sortedBooks.length > 0 ? (
-                sortedBooks.map((book, index) => (
-                  <tr key={index} className="book" style={{ height: '50px' }}>
-                    <td className="book_title">{book.title}</td>
-                    <td className="book_author">{book.author}</td>
-                    <td className="book_publisher">{book.publisher}</td>
-                    <td className="book_ISBN">{book.primary_isbn10}</td>
-                  </tr>))
-              ) : (
-                <tr>
-                  <td colSpan="4">No books available</td>
+              sortedBooks.map((book, index) => (
+                <tr key={index} className="book" style={{ height: '50px' }}>
+                  <td className="book_title">{book.title}</td>
+                  <td className="book_author">{book.author}</td>
+                  <td className="book_publisher">{book.publisher}</td>
+                  <td className="book_ISBN">{book.primary_isbn10}</td>
                 </tr>
-              )
+              ))
             }
           </tbody>
         </table>
-      </div>
+      ) : (
+        <p></p>
+      )}
     </div>
-  );
-}
+  </div>
+);
+}  
 
 export default App;

@@ -66,9 +66,6 @@ const App = () => {
               <option value="Publisher">Publisher</option>
             </select>
           </label>
-        </div>
-
-        <div className="dropdown">
           <label htmlFor="order">
             Order:
             <select
@@ -82,7 +79,7 @@ const App = () => {
           </label>
         </div>
       </div>
-     
+
       <div id='books'>
         <table>
           <thead>
@@ -90,6 +87,7 @@ const App = () => {
               <th className="book_title">Title</th>
               <th className="book_author">Author</th>
               <th className="book_publisher">Publisher</th>
+              <th className=""></th>
             </tr>
           </thead>
           <tbody>
@@ -100,8 +98,8 @@ const App = () => {
                     <td className="book_title">{book.title}</td>
                     <td className="book_author">{book.author}</td>
                     <td className="book_publisher">{book.publisher}</td>
-                  </tr>
-                ))
+                    <td className="book_description">{book.description}</td>
+                  </tr>))
               ) : (
                 <tr>
                   <td colSpan="3">No books available</td>

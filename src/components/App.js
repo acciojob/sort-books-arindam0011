@@ -47,7 +47,7 @@ const App = () => {
       }
       setSortedBooks(sortedArray);
     } else {
-      setSortedBooks([]);
+      setSortedBooks([]); 
     }
   }, [sortBy, ordered, books]);
 
@@ -68,9 +68,6 @@ const App = () => {
               <option value="Publisher">Publisher</option>
             </select>
           </label>
-        </div>
-
-        <div className="dropdown">
           <label htmlFor="order">
             Order:
             <select
@@ -84,7 +81,7 @@ const App = () => {
           </label>
         </div>
       </div>
-     
+
       <div id='books'>
         <table>
           <thead>

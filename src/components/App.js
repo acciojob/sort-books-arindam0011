@@ -87,7 +87,7 @@ const App = () => {
               <th className="book_title">Title</th>
               <th className="book_author">Author</th>
               <th className="book_publisher">Publisher</th>
-              <th className=""></th>
+              <th className="book_ISBN">ISBN</th>
             </tr>
           </thead>
           <tbody>

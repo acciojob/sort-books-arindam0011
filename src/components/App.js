@@ -11,7 +11,7 @@ const App = () => {
 
   const [sortBy, setSortBy] = useState('Title');
   const [ordered, setOrdered] = useState('Ascending');
-  const [sortedBooks, setSortedBooks] = useState([]); // Make sure this state is defined
+  const [sortedBooks, setSortedBooks] = useState([]); // Ensure this state is defined
 
   useEffect(() => {
     const getBooks = async () => {
@@ -51,6 +51,7 @@ const App = () => {
 
   return (
     <div>
+      <h1>Books List</h1>
       <div style={{ display: 'flex' }}>
         <div className="dropdown" style={{ marginRight: '10px' }}>
           <label>
@@ -79,7 +80,6 @@ const App = () => {
           </label>
         </div>
       </div>
-      <h1>Books List</h1>
       <div id='books'>
         <table>
           <thead>
@@ -101,7 +101,7 @@ const App = () => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan="4">No books available</td>
+                  <td colSpan="3">No books available</td>
                 </tr>
               )
             }

@@ -55,7 +55,7 @@ const App = () => {
       <div style={{ display: 'flex' }}>
         <div className="dropdown" style={{ marginRight: '10px' }}>
           <label>
-            Sort by:
+            sort by:
             <select
               value={sortBy}
               onChange={e => setSortBy(e.target.value)}
@@ -69,7 +69,7 @@ const App = () => {
 
         <div className="dropdown">
           <label>
-            Order:
+            order:
             <select
               value={ordered}
               onChange={e => setOrdered(e.target.value)}

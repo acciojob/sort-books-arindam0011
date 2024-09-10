@@ -98,7 +98,7 @@ const App = () => {
                     <td className="book_title">{book.title}</td>
                     <td className="book_author">{book.author}</td>
                     <td className="book_publisher">{book.publisher}</td>
-                    <td className="book_description">{book.description}</td>
+                    <td className="book_ISBN">{book.primary_isbn10}</td>
                   </tr>))
               ) : (
                 <tr>
